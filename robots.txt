@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /soumission-ceramique/
+
+Sitemap: https://prix-ceramique.ca/sitemap-index.xml
