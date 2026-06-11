@@ -156,7 +156,7 @@
       <div class="cr-hero__kicker">
         <span class="cr-badge-brand">
           <span class="cr-pulse" style="width:.4rem;height:.4rem;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0"></span>
-          12 projets de ceramique soumis cette semaine
+          15 projets de ceramique soumis cette semaine
         </span>
       </div>
 
@@ -794,7 +794,7 @@ Plus la tuile est grande, plus l'espace paraît vaste : c'est l'effet des joints
         </p>
         <div class="cr-footer__pulse-row">
           <span class="cr-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          12 projets de ceramique soumis cette semaine
+          15 projets de ceramique soumis cette semaine
         </div>
       </div>
 
@@ -803,7 +803,7 @@ Plus la tuile est grande, plus l'espace paraît vaste : c'est l'effet des joints
         <div class="cr-footer__links">
           <a href="/la-martre">La Martre</a>
           <a href="/les-iles-de-la-madeleine">Les Îles-de-la-Madeleine</a>
-          <a href="/riviere-saint-jean">Rivière-Saint-Jean</a>
+          <a href="/riviere-saint-jean-gaspesie-iles-de-la-madeleine-11">Rivière-Saint-Jean</a>
           <a href="/paspebiac">Paspébiac</a>
           <a href="/sainte-therese-de-gaspe">Sainte-Thérèse-de-Gaspé</a>
           <a href="/murdochville">Murdochville</a>
@@ -887,58 +887,6 @@ function nextStep(n) {
       valid = false;
       inp.style.borderColor = '#ef4444';
       inp.addEventListener('input', function() { inp.style.borderColor = ''; }, {once: true});
-    }
-  });
-  _radioGroups.forEach(function(rg) {
-    if (rg.step !== _fStep) return;
-    var checked = current.querySelector('input[name="' + rg.name + '"]:checked');
-    if (!checked) {
-      valid = false;
-      if (rg.error) {
-        var errEl = document.getElementById(rg.error);
-        if (errEl) { errEl.style.display = 'block'; setTimeout(function() { errEl.style.display = 'none'; }, 3000); }
-      }
-    }
-  });
-  if (!valid) return;
-  showStep(n);
-}
-
-function prevStep(n) { showStep(n); }
-
-var _form = document.getElementById('empire-form');
-if (_form) {
-  _form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var data = new FormData(_form);
-    fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
-    }).then(function() {
-      document.querySelectorAll('.cr-form-step').forEach(function(s) { s.classList.remove('active'); });
-      var merci = document.getElementById('step-merci');
-      if (merci) merci.classList.add('active');
-      _updateDots(_totalSteps + 1);
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_qualifie', {event_category: 'lead', event_label: 'Saint-Siméon', event_value: 1});
-      }
-    }).catch(function() { _form.submit(); });
-  });
-}
-
-var _stickyBar = document.getElementById('sticky-bar');
-if (_stickyBar) {
-  var _formEl = document.getElementById('formulaire');
-  window.addEventListener('scroll', function() {
-    if (_formEl) {
-      var rect = _formEl.getBoundingClientRect();
-      _stickyBar.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'none' : '';
-    }
-  }, {passive: true});
-}
-</script></body>
-</html>ce: true});
     }
   });
   _radioGroups.forEach(function(rg) {
